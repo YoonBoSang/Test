@@ -4,37 +4,29 @@ import java.util.*;
 
 public class Test84 {
 	public static void main(String[] args) {
-		String X = "100";
-		String Y = "123450";
+		String X = "1000000";
+		String Y = "12345000";
 		String answer = "";
 		String s = "";
-		int max = Math.max(X.length(), Y.length());
-		int min = Math.min(X.length(), Y.length());
 		List<Integer> list = new ArrayList<>();
 		int cnt = 0;
-		if(X.contains("0") && Y.contains("0")) {
-			s = "0";
-			X = X.replace("0", "");
-			Y = Y.replace("0", "");
-			cnt++;
-		}
-		System.out.println(X);
-		System.out.println(Y);
+		int max = Math.max(X.length(), Y.length());
+		int min = Math.min(X.length(), Y.length());
 		for (int i = 0; i < min; i++) {
-			if (i < X.length() && Y.contains(String.valueOf(X.charAt(i)))) {
+			if (Y.contains(String.valueOf(X.charAt(i)))) {
 				cnt++;
 				list.add(X.charAt(i) - '0');
 				Y = Y.replaceFirst("" + X.charAt(i), "");
 			}
 		}
-		if (cnt == 0) {
-//            return "-1";
-			System.out.println(-1);
-		}
 		Collections.sort(list, Collections.reverseOrder());
 		for (int i : list) {
-
 				answer += i + "";
+		}
+		if (cnt == 0) {
+//            return "-1";
+		} else if (answer.replace("0", "").equals("")) {
+//			return "0";
 		}
 		
 		System.out.println(answer + s);
