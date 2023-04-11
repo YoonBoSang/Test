@@ -2,11 +2,13 @@ package Test;
 
 public class Test87  {
 	public static void main(String[] args) {
-		int[] numbers = {1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5};
-		String hand = "right";
+		int[] numbers = {7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2	};
+		String hand = "left";
         String answer = "";
         int r = 10;
         int l = 8;
+        int sumr = 0;
+        int suml = 0;
         for(int i = 0; i < numbers.length; i++) {
         	System.out.println("numbers : " + numbers[i]);
         	System.out.println("l : " + l);
@@ -22,11 +24,11 @@ public class Test87  {
                     numbers[i] = 10;
                 }
                 if(l == 2 || l == 5 || l == 10 || l == 8) {
-                	int suml = l > numbers[i] ? - 2 : 2;
+                	suml = l > numbers[i] ? - 2 : 2;
                 	l += suml;
                 }
                 if(r == 2 || r == 5 || r == 10 || r == 8) {
-                	int sumr = r > numbers[i] ? -2 : 2;
+                	sumr = r > numbers[i] ? -2 : 2;
                 	r += sumr;
                 }
                 l += 2;
@@ -48,7 +50,10 @@ public class Test87  {
                     r = numbers[i];
                     l -= 2;
                 }
-                l - sum
+                l -= suml;
+                r -= sumr;
+                suml = 0;
+                sumr = 0;
             }
             System.out.println(answer);
             System.out.println("--------------------");
