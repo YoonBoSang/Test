@@ -4,13 +4,14 @@ import java.util.*;
 
 public class Test89 {
 	public static void main(String[] args) {
-		String new_id = "...!@BaT#*..y.abcdefghijklm";
+		String new_id = "";
         String answer = "";
         int cnt = 0;
         new_id = new_id.toLowerCase();
         List<String> list = new ArrayList<>();
         if(new_id.equals("")){
 //            return "aaa";
+        	System.out.println("aaa");
         }
         if(new_id.length() <= 2){
             for(int i = new_id.length(); i < 3; i++) {
@@ -29,9 +30,29 @@ public class Test89 {
                 cnt++;
             }
         }
-        if(list.size() >= 16) {
-        	if(list.get(15).equals(".")) {
-        		for(int i = 0; i <= 15; i++ ) {
+        for(int i = 0; i < list.size(); i++) {
+        		if((i == 0 || i == list.size() - 1) && list.get(i).equals(".")){
+        			list.remove(i);
+        		} else if (i - 1 >= 0 && list.get(i).equals(".") && list.get(i-1).equals(".")) {
+        			list.remove(i);
+        		}
+        }
+        
+        if(list.isEmpty()){
+//            return "aaa";
+        }
+        if(list.size() <= 2){
+        	for(int i = list.size(); i < 3; i++) {
+        		list.add(list.get(i - 1));
+        	}
+        	for(String s : list) {
+        		answer += s;
+        	}
+//        	return answer;
+        }
+        if(list.size() >= 15) {
+        	if(list.get(14).equals(".")) {
+        		for(int i = 0; i < 14; i++ ) {
         			answer += list.get(i);
         		}
         	} else {
@@ -46,6 +67,5 @@ public class Test89 {
         }
         
         System.out.println(answer);
-        System.out.println("!".matches("."));
 	}
 }
