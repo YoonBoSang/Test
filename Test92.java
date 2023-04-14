@@ -36,6 +36,5 @@ public class Test92 {
             answer[i] = Integer.parseInt(A[i]);   
         }
         System.out.println(Arrays.toString(answer));
-        
 	}
 }
