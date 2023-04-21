@@ -5,7 +5,6 @@ import java.util.*;
 public class Test104 {
 	public static void main(String[] args) {
 		String s = "baabaa";
-		System.out.println(" ".toLowerCase());
         String[] arr = s.split("");
         Stack<String> stack = new Stack<>();
         for(int i = 0; i < arr.length; i++) {
